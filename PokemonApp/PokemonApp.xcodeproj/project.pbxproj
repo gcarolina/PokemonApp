@@ -56,15 +56,23 @@
 		F1652B6B29EF349700B8D3AC /* PokemonApp */ = {
 			isa = PBXGroup;
 			children = (
-				F1652B6C29EF349700B8D3AC /* AppDelegate.swift */,
-				F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */,
+				F1A9414929F06B2F00EE908E /* AppDelegates */,
 				F1652B7029EF349700B8D3AC /* ViewController.swift */,
 				F1652B7229EF349700B8D3AC /* Main.storyboard */,
-				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
 				F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */,
+				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
 				F1652B7A29EF349E00B8D3AC /* Info.plist */,
 			);
 			path = PokemonApp;
+			sourceTree = "<group>";
+		};
+		F1A9414929F06B2F00EE908E /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				F1652B6C29EF349700B8D3AC /* AppDelegate.swift */,
+				F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

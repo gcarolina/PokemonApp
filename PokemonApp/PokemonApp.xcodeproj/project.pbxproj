@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		F1652B6D29EF349700B8D3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1652B6C29EF349700B8D3AC /* AppDelegate.swift */; };
 		F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */; };
-		F1652B7129EF349700B8D3AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1652B7029EF349700B8D3AC /* ViewController.swift */; };
 		F1652B7429EF349700B8D3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7229EF349700B8D3AC /* Main.storyboard */; };
 		F1652B7629EF349E00B8D3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7529EF349E00B8D3AC /* Assets.xcassets */; };
 		F1652B7929EF349E00B8D3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */; };
+		F1A9414C29F07B8600EE908E /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A9414B29F07B8600EE908E /* MainScreenTableViewController.swift */; };
+		F1DE211129F4117A001C0210 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE210F29F4117A001C0210 /* MainScreenTableViewCell.swift */; };
+		F1DE211229F4117A001C0210 /* MainScreenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1DE211029F4117A001C0210 /* MainScreenTableViewCell.xib */; };
+		F1DE211429F432D0001C0210 /* MainScreenCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE211329F432D0001C0210 /* MainScreenCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1652B6929EF349700B8D3AC /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1652B6C29EF349700B8D3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1652B7029EF349700B8D3AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1652B7329EF349700B8D3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1652B7529EF349E00B8D3AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1652B7829EF349E00B8D3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1652B7A29EF349E00B8D3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A9414B29F07B8600EE908E /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
+		F1DE210F29F4117A001C0210 /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
+		F1DE211029F4117A001C0210 /* MainScreenTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenTableViewCell.xib; sourceTree = "<group>"; };
+		F1DE211329F432D0001C0210 /* MainScreenCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,32 @@
 			children = (
 				F1652B6C29EF349700B8D3AC /* AppDelegate.swift */,
 				F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */,
-				F1652B7029EF349700B8D3AC /* ViewController.swift */,
+				F1A9414A29F076A200EE908E /* MainScreen */,
 				F1652B7229EF349700B8D3AC /* Main.storyboard */,
 				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
 				F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */,
 				F1652B7A29EF349E00B8D3AC /* Info.plist */,
 			);
 			path = PokemonApp;
+			sourceTree = "<group>";
+		};
+		F1A9414A29F076A200EE908E /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F1A9414B29F07B8600EE908E /* MainScreenTableViewController.swift */,
+				F1DE211529F432E6001C0210 /* MainTableCell */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		F1DE211529F432E6001C0210 /* MainTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE211329F432D0001C0210 /* MainScreenCellViewModel.swift */,
+				F1DE210F29F4117A001C0210 /* MainScreenTableViewCell.swift */,
+				F1DE211029F4117A001C0210 /* MainScreenTableViewCell.xib */,
+			);
+			path = MainTableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DE211229F4117A001C0210 /* MainScreenTableViewCell.xib in Resources */,
 				F1652B7929EF349E00B8D3AC /* LaunchScreen.storyboard in Resources */,
 				F1652B7629EF349E00B8D3AC /* Assets.xcassets in Resources */,
 				F1652B7429EF349700B8D3AC /* Main.storyboard in Resources */,
@@ -138,9 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1652B7129EF349700B8D3AC /* ViewController.swift in Sources */,
 				F1652B6D29EF349700B8D3AC /* AppDelegate.swift in Sources */,
+				F1DE211129F4117A001C0210 /* MainScreenTableViewCell.swift in Sources */,
+				F1A9414C29F07B8600EE908E /* MainScreenTableViewController.swift in Sources */,
 				F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */,
+				F1DE211429F432D0001C0210 /* MainScreenCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

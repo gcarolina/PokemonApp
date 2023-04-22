@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.45882352939999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next-svgrepo-com (2)" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-gL-aLU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-gL-aLU">
                                 <rect key="frame" x="190" y="22.666666666666664" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YUm-gL-aLU" secondAttribute="height" id="ifi-OI-Wlo"/>
@@ -52,6 +52,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="next-svgrepo-com (2)" width="800" height="800"/>
+        <image name="next" width="800" height="800"/>
     </resources>
 </document>

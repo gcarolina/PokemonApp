@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1652B6D29EF349700B8D3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1652B6C29EF349700B8D3AC /* AppDelegate.swift */; };
+		F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */; };
 		F1652B7429EF349700B8D3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7229EF349700B8D3AC /* Main.storyboard */; };
 		F1652B7629EF349E00B8D3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7529EF349E00B8D3AC /* Assets.xcassets */; };
 		F1652B7929EF349E00B8D3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		F1652B6929EF349700B8D3AC /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1652B6C29EF349700B8D3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F1652B7329EF349700B8D3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1652B7529EF349E00B8D3AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1652B7829EF349E00B8D3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				F1A9414A29F076A200EE908E /* MainScreen */,
 				F1652B7229EF349700B8D3AC /* Main.storyboard */,
 				F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */,
+				F1652B6C29EF349700B8D3AC /* AppDelegate.swift */,
+				F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */,
 				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
 				F1652B7A29EF349E00B8D3AC /* Info.plist */,
 			);
@@ -214,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1652B6D29EF349700B8D3AC /* AppDelegate.swift in Sources */,
 				F1DE213029F47A4C001C0210 /* MainScreenTableViewModel.swift in Sources */,
 				F1DE211129F4117A001C0210 /* MainScreenTableViewCell.swift in Sources */,
 				F1DE211A29F44836001C0210 /* ResultResponse.swift in Sources */,
@@ -222,6 +229,7 @@
 				F1DE211E29F44966001C0210 /* Sprites.swift in Sources */,
 				F1A9414C29F07B8600EE908E /* MainScreenTableViewController.swift in Sources */,
 				F1DE211C29F448CE001C0210 /* PokemonCharacteristics.swift in Sources */,
+				F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */,
 				F1DE211829F447E0001C0210 /* MainResultResponse.swift in Sources */,
 				F1DE212529F475AE001C0210 /* NetworkService.swift in Sources */,
 				F1DE211429F432D0001C0210 /* MainScreenCellViewModel.swift in Sources */,

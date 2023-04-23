@@ -7,30 +7,50 @@
 
 import UIKit
 
-class MainScreenTableViewController: UITableViewController {
+final class MainScreenTableViewController: UITableViewController {
     
+    private var viewModel: MainScreenTableViewProtocol?
+    var mainResultResponse: MainResultResponse?
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = false
+        viewModel = MainScreenTableViewModel()
         let cellNib = UINib(nibName: MainScreenTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: MainScreenTableViewCell.reuseIdentifier)
-        tableView.rowHeight = 100.0
+        getAllPokemons()
     }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        viewModel?.numberOfRows() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenTableViewCell.reuseIdentifier, for: indexPath) as! MainScreenTableViewCell
-        let inset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        cell.contentView.frame = cell.contentView.frame.inset(by: inset)
-        
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenTableViewCell.reuseIdentifier, for: indexPath) as? MainScreenTableViewCell
+        guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+        tableViewCell.cellViewModel = cellViewModel
+        return tableViewCell
     }
     
+    // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100.0
+        CGFloat(viewModel?.rowHeight ?? 0)
+    }
+    
+    //MARK: - Private functions
+    private func getAllPokemons() {
+        viewModel?.getListOfPokemons { [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

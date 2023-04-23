@@ -44,6 +44,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="pokemonName" destination="LTP-dB-nho" id="x08-Mt-Lfg"/>
+            </connections>
             <point key="canvasLocation" x="48.091603053435115" y="35.563380281690144"/>
         </tableViewCell>
     </objects>

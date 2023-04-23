@@ -7,19 +7,24 @@
 
 import UIKit
 
-class MainScreenTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var pokemonName: UILabel!
+final class MainScreenTableViewCell: UITableViewCell {
     
-    private let cellViewModel = MainScreenCellViewModel(pokemonName: "pikachu")
     static let reuseIdentifier = "MainScreenTableViewCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        cellViewModel.setUpUIForBorder(view: contentView)
+    @IBOutlet weak var pokemonName: UILabel!
+    private let borderWidth: CGFloat = 9.5
+    private let cornerRadius = 45.0
+
+    var cellViewModel: MainScreenCellViewModelProtocol? {
+        willSet(cellViewModel) {
+            guard let cellViewModel = cellViewModel else { return }
+            pokemonName.text = cellViewModel.name
+        }
     }
-    
+
+    // MARK: - Life cycle
     override func layoutSubviews() {
-        cellViewModel.setCornerRadius(view: contentView)
+        cellViewModel?.setCornerRadius(view: contentView)
+        cellViewModel?.setUpUIForBorder(view: contentView)
     }
 }

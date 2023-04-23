@@ -7,17 +7,28 @@
 
 import UIKit
 
-final class MainScreenCellViewModel {
-    private let pokemonName: String
-    private let borderWidth: CGFloat = 4
-    private let cornerRadius = 30.0
+protocol MainScreenCellViewModelProtocol {
+    var name: String { get }
+    var url: String { get }
+    func setCornerRadius(view: UIView)
+    func setUpUIForBorder(view: UIView)
+}
+
+final class MainScreenCellViewModel: MainScreenCellViewModelProtocol {
+    private var pokemon: ResultResponse
+    private let borderWidth: CGFloat = 9.5
+    private let cornerRadius = 45.0
     
-    init(pokemonName: String) {
-        self.pokemonName = pokemonName
+    init(pokemon: ResultResponse) {
+        self.pokemon = pokemon
     }
     
-    func configureCell(_ cell: MainScreenTableViewCell) {
-        cell.pokemonName.text = pokemonName
+    var name: String {
+        pokemon.name
+    }
+    
+    var url: String {
+        pokemon.url
     }
     
     func setCornerRadius(view: UIView) {

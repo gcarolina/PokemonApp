@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Types {
+struct Types: Decodable {
     let slot: Int
     let type: TypeOfPokemon
 }

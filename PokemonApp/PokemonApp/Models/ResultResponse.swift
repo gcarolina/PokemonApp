@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResultResponse {
+struct ResultResponse: Decodable {
     let name: String
     let url: String
 }

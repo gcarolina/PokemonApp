@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MainResultResponse {
+struct MainResultResponse: Decodable {
     let count: Int
     let next: String
     let previous: String?

@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Sprites {
+struct Sprites: Decodable {
+    //как назвать как хочешь
     let front_default: String
 }

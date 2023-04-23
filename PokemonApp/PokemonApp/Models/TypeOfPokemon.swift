@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct TypeOfPokemon {
+struct TypeOfPokemon: Decodable {
     let name: String
 }

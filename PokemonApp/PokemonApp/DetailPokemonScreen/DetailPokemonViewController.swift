@@ -8,10 +8,19 @@
 import UIKit
 
 final class DetailPokemonViewController: UIViewController {
-
+    
+    @IBOutlet private weak var pokemonImage: UIImageView!
+    @IBOutlet private weak var nameOfPokemon: UILabel!
+    @IBOutlet private weak var height: UILabel!
+    @IBOutlet private weak var weight: UILabel!
+    @IBOutlet private weak var types: UILabel!
+    
+    var detailViewModel: DetailPokemonViewProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        createBarButtonItems()
+        createBarButtonItem()
+        getInfoOfPokemon()
     }
     
     private func createButton(imageName: String, tintColor: UIColor, backgroundColor: UIColor, target: Any?, action: Selector?) -> UIButton {
@@ -25,9 +34,9 @@ final class DetailPokemonViewController: UIViewController {
         return button
     }
     
-    private func createBarButtonItems() {
-        let backButton = createButton(imageName: "chevron.backward",
-                                      tintColor: UIColor(red: 213/255, green: 161/255, blue: 0, alpha: 1),
+    private func createBarButtonItem() {
+        let backButton = createButton(imageName: DetailPokemonViewModel.backImageName,
+                                      tintColor: UIColor(red: 0, green: 73/255, blue: 190/255, alpha: 1),
                                       backgroundColor: UIColor(red: 255/255, green: 204/255, blue: 0, alpha: 1),
                                       target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
@@ -35,5 +44,38 @@ final class DetailPokemonViewController: UIViewController {
     
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func getInfoOfPokemon() {
+        detailViewModel?.getPokemonCharacteristics { [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self?.nameOfPokemon.text = self?.detailViewModel?.name
+                    self?.height.text = self?.detailViewModel?.height
+                    self?.weight.text = self?.detailViewModel?.weight
+                    self?.getPokemonTypes()
+                    
+                    self?.detailViewModel?.getImage { [weak self] image in
+                        DispatchQueue.main.async {
+                            self?.pokemonImage.image = image
+                        }
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getPokemonTypes() {
+        var typesNames = ""
+        if let types = self.detailViewModel?.types {
+            for type in types {
+                typesNames += "\(type.type.name), "
+            }
+            typesNames = String(typesNames.dropLast(2))
+        }
+        self.types.text = typesNames
     }
 }

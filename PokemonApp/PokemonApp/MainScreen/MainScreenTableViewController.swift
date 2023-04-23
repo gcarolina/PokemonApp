@@ -40,6 +40,15 @@ final class MainScreenTableViewController: UITableViewController {
         CGFloat(viewModel?.rowHeight ?? 0)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel else { return }
+        viewModel.selectRow(atIndexPath: indexPath)
+        let storyboard = UIStoryboard(name: DetailPokemonViewModel.detailPokemonStoryboard, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: DetailPokemonViewModel.detailPokemonViewController) as? DetailPokemonViewController else { return }
+        vc.detailViewModel = viewModel.viewModelForSelectedRow()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: - Private functions
     private func getAllPokemons() {
         viewModel?.getListOfPokemons { [weak self] result in

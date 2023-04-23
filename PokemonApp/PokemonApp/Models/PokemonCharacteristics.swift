@@ -12,5 +12,5 @@ struct PokemonCharacteristics: Decodable {
     let height: Double
     let weight: Double
     let sprites: Sprites
-    let types: Types
+    let types: [Types]
 }

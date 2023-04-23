@@ -30,6 +30,7 @@
 		F1DE216029F58A67001C0210 /* DetailPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE215F29F58A67001C0210 /* DetailPokemonViewController.swift */; };
 		F1DE216229F58A95001C0210 /* DetailPokemonStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */; };
 		F1DE216429F595C2001C0210 /* DetailPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE216329F595C1001C0210 /* DetailPokemonViewModel.swift */; };
+		F1DE216629F5C2E1001C0210 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE216529F5C2E1001C0210 /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		F1DE215F29F58A67001C0210 /* DetailPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonViewController.swift; sourceTree = "<group>"; };
 		F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPokemonStoryboard.storyboard; sourceTree = "<group>"; };
 		F1DE216329F595C1001C0210 /* DetailPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonViewModel.swift; sourceTree = "<group>"; };
+		F1DE216529F5C2E1001C0210 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DE214F29F57345001C0210 /* NetworkService.swift */,
+				F1DE216529F5C2E1001C0210 /* CacheManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,9 +167,9 @@
 		F1DE215E29F58A33001C0210 /* DetailPokemonScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */,
 				F1DE215F29F58A67001C0210 /* DetailPokemonViewController.swift */,
 				F1DE216329F595C1001C0210 /* DetailPokemonViewModel.swift */,
-				F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */,
 			);
 			path = DetailPokemonScreen;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				F1DE214729F571FC001C0210 /* ResultResponse.swift in Sources */,
 				F1DE215229F57385001C0210 /* MainScreenTableViewModel.swift in Sources */,
 				F1DE214329F571B8001C0210 /* MainResultResponse.swift in Sources */,
+				F1DE216629F5C2E1001C0210 /* CacheManager.swift in Sources */,
 				F1DE216029F58A67001C0210 /* DetailPokemonViewController.swift in Sources */,
 				F1DE215029F57345001C0210 /* NetworkService.swift in Sources */,
 				F1DE213C29F56EEA001C0210 /* MainScreenCellViewModel.swift in Sources */,

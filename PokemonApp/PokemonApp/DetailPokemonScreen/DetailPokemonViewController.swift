@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DetailPokemonViewController: UIViewController {
+final class DetailPokemonViewController: BaseViewController {
     
     @IBOutlet private weak var pokemonImage: UIImageView!
     @IBOutlet private weak var nameOfPokemon: UILabel!
@@ -64,6 +64,11 @@ final class DetailPokemonViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: TextForAlert.titleForAlert, message: TextForAlert.messageForAlert, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: TextForAlert.doneButtonNameForAlert, style: .default))
+                    self?.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }

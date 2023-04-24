@@ -10,9 +10,4 @@ import UIKit
 final class NetworkErrorViewController: UIViewController, UIGestureRecognizerDelegate {
     static let networkErrorStoryboard = "NetworkErrorStoryboard"
     static let networkErrorViewController = "NetworkErrorViewController"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        isModalInPresentation = true
-    }
 }

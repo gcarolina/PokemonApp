@@ -31,6 +31,12 @@
 		F1DE216229F58A95001C0210 /* DetailPokemonStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */; };
 		F1DE216429F595C2001C0210 /* DetailPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE216329F595C1001C0210 /* DetailPokemonViewModel.swift */; };
 		F1DE216629F5C2E1001C0210 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE216529F5C2E1001C0210 /* CacheManager.swift */; };
+		F1DE216C29F6C48B001C0210 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F1DE216B29F6C48B001C0210 /* Reachability */; };
+		F1DE217029F6C94D001C0210 /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE216F29F6C94D001C0210 /* NetworkErrorViewController.swift */; };
+		F1DE217229F6C968001C0210 /* NetworkErrorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DE217129F6C968001C0210 /* NetworkErrorStoryboard.storyboard */; };
+		F1DE217429F6D22A001C0210 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE217329F6D22A001C0210 /* BaseViewController.swift */; };
+		F1DE217629F6E618001C0210 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE217529F6E618001C0210 /* BaseViewModel.swift */; };
+		F1DE217A29F6F589001C0210 /* TextForAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE217929F6F589001C0210 /* TextForAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,11 @@
 		F1DE216129F58A95001C0210 /* DetailPokemonStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPokemonStoryboard.storyboard; sourceTree = "<group>"; };
 		F1DE216329F595C1001C0210 /* DetailPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonViewModel.swift; sourceTree = "<group>"; };
 		F1DE216529F5C2E1001C0210 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		F1DE216F29F6C94D001C0210 /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
+		F1DE217129F6C968001C0210 /* NetworkErrorStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NetworkErrorStoryboard.storyboard; sourceTree = "<group>"; };
+		F1DE217329F6D22A001C0210 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F1DE217529F6E618001C0210 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F1DE217929F6F589001C0210 /* TextForAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextForAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DE215529F57536001C0210 /* SwiftyJSON in Frameworks */,
+				F1DE216C29F6C48B001C0210 /* Reachability in Frameworks */,
 				F1DE215829F57542001C0210 /* Alamofire in Frameworks */,
 				F1DE215B29F57551001C0210 /* AlamofireImage in Frameworks */,
 			);
@@ -92,6 +104,7 @@
 		F1652B6B29EF349700B8D3AC /* PokemonApp */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE216729F6662B001C0210 /* NetworkMonitor */,
 				F1DE214E29F57333001C0210 /* Services */,
 				F1DE214129F57195001C0210 /* Models */,
 				F1DE213529F56D43001C0210 /* MainScreen */,
@@ -133,6 +146,7 @@
 				F1DE214829F57224001C0210 /* Sprites.swift */,
 				F1DE214C29F57263001C0210 /* Types.swift */,
 				F1DE214A29F57245001C0210 /* TypeOfPokemon.swift */,
+				F1DE217929F6F589001C0210 /* TextForAlert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +188,33 @@
 			path = DetailPokemonScreen;
 			sourceTree = "<group>";
 		};
+		F1DE216729F6662B001C0210 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE217829F6E9BF001C0210 /* NetworkErrorController */,
+				F1DE217729F6E9A1001C0210 /* BaseViewController */,
+			);
+			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
+		F1DE217729F6E9A1001C0210 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE217329F6D22A001C0210 /* BaseViewController.swift */,
+				F1DE217529F6E618001C0210 /* BaseViewModel.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		F1DE217829F6E9BF001C0210 /* NetworkErrorController */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE216F29F6C94D001C0210 /* NetworkErrorViewController.swift */,
+				F1DE217129F6C968001C0210 /* NetworkErrorStoryboard.storyboard */,
+			);
+			path = NetworkErrorController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +235,7 @@
 				F1DE215429F57536001C0210 /* SwiftyJSON */,
 				F1DE215729F57542001C0210 /* Alamofire */,
 				F1DE215A29F57551001C0210 /* AlamofireImage */,
+				F1DE216B29F6C48B001C0210 /* Reachability */,
 			);
 			productName = PokemonApp;
 			productReference = F1652B6929EF349700B8D3AC /* PokemonApp.app */;
@@ -227,6 +269,7 @@
 				F1DE215329F57536001C0210 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				F1DE215629F57542001C0210 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F1DE215929F57551001C0210 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				F1DE216A29F6C48B001C0210 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = F1652B6A29EF349700B8D3AC /* Products */;
 			projectDirPath = "";
@@ -245,6 +288,7 @@
 				F1652B7929EF349E00B8D3AC /* LaunchScreen.storyboard in Resources */,
 				F1DE216229F58A95001C0210 /* DetailPokemonStoryboard.storyboard in Resources */,
 				F1652B7629EF349E00B8D3AC /* Assets.xcassets in Resources */,
+				F1DE217229F6C968001C0210 /* NetworkErrorStoryboard.storyboard in Resources */,
 				F1652B7429EF349700B8D3AC /* Main.storyboard in Resources */,
 				F1DE214029F56F1D001C0210 /* MainScreenTableViewCell.xib in Resources */,
 			);
@@ -259,16 +303,20 @@
 			files = (
 				F1652B6D29EF349700B8D3AC /* AppDelegate.swift in Sources */,
 				F1DE214929F57224001C0210 /* Sprites.swift in Sources */,
+				F1DE217A29F6F589001C0210 /* TextForAlert.swift in Sources */,
 				F1DE214D29F57263001C0210 /* Types.swift in Sources */,
 				F1DE213F29F56F1D001C0210 /* MainScreenTableViewCell.swift in Sources */,
 				F1DE216429F595C2001C0210 /* DetailPokemonViewModel.swift in Sources */,
+				F1DE217429F6D22A001C0210 /* BaseViewController.swift in Sources */,
 				F1DE214B29F57245001C0210 /* TypeOfPokemon.swift in Sources */,
 				F1DE213729F56D64001C0210 /* MainScreenTableViewController.swift in Sources */,
 				F1DE214529F571E0001C0210 /* PokemonCharacteristics.swift in Sources */,
 				F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */,
 				F1DE214729F571FC001C0210 /* ResultResponse.swift in Sources */,
 				F1DE215229F57385001C0210 /* MainScreenTableViewModel.swift in Sources */,
+				F1DE217029F6C94D001C0210 /* NetworkErrorViewController.swift in Sources */,
 				F1DE214329F571B8001C0210 /* MainResultResponse.swift in Sources */,
+				F1DE217629F6E618001C0210 /* BaseViewModel.swift in Sources */,
 				F1DE216629F5C2E1001C0210 /* CacheManager.swift in Sources */,
 				F1DE216029F58A67001C0210 /* DetailPokemonViewController.swift in Sources */,
 				F1DE215029F57345001C0210 /* NetworkService.swift in Sources */,
@@ -516,6 +564,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		F1DE216A29F6C48B001C0210 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -533,6 +589,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1DE215929F57551001C0210 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
+		};
+		F1DE216B29F6C48B001C0210 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1DE216A29F6C48B001C0210 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

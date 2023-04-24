@@ -30,6 +30,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pokemons" id="Mq3-cS-tRW"/>
+                    <connections>
+                        <outlet property="tableView" destination="PwM-Gy-v4y" id="lSD-u0-VoI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hep-0p-NRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

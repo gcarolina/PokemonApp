@@ -63,7 +63,6 @@ final class DetailPokemonViewController: BaseViewController {
                     }
                 }
             case .failure(let error):
-                print(error.localizedDescription)
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: TextForAlert.titleForAlert.rawValue, message: TextForAlert.messageForAlert.rawValue, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: TextForAlert.doneButtonNameForAlert.rawValue, style: .default))

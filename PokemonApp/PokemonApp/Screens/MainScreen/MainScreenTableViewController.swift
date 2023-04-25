@@ -57,7 +57,6 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
                 DispatchQueue.main.async {
                     self?.viewModel?.loadDataFromDatabase()
                     self?.tableView.reloadData()

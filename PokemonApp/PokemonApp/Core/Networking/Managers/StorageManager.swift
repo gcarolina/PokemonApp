@@ -21,7 +21,7 @@ class StorageManager {
                 realm.add(mainResultResponseObject)
             }
         } catch {
-            print("savePokemonsInfo error: \(error)")
+            print(error)
         }
     }
 }

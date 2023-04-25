@@ -14,3 +14,12 @@ class MainResultResponseObject: Object {
     @objc dynamic var previous: String? = nil
     let results = List<ResultResponseObject>()
 }
+
+extension MainResultResponseObject {
+    func toMainResultResponse() -> MainResultResponse {
+        return MainResultResponse(count: count,
+                                  next: next,
+                                  previous: previous,
+                                  results: results.map({ $0.toResultResponse() }))
+    }
+}

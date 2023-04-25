@@ -114,8 +114,8 @@
 		F1652B6B29EF349700B8D3AC /* PokemonApp */ = {
 			isa = PBXGroup;
 			children = (
-				F1DE218629F73229001C0210 /* Managers */,
 				F1DE214E29F57333001C0210 /* Services */,
+				F1DE218629F73229001C0210 /* Managers */,
 				F1DE216729F6662B001C0210 /* NetworkMonitor */,
 				F1DE214129F57195001C0210 /* Models */,
 				F1DE213529F56D43001C0210 /* MainScreen */,
@@ -230,10 +230,18 @@
 			isa = PBXGroup;
 			children = (
 				F1DE218229F71592001C0210 /* StorageManager.swift */,
+				F1DE218929F7E317001C0210 /* Objects for DataBase */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F1DE218929F7E317001C0210 /* Objects for DataBase */ = {
+			isa = PBXGroup;
+			children = (
 				F1DE218029F714BF001C0210 /* MainResultResponseObject.swift */,
 				F1DE218429F731FB001C0210 /* ResultResponseObject.swift */,
 			);
-			path = Managers;
+			path = "Objects for DataBase";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

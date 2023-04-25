@@ -52,13 +52,15 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     private func getAllPokemons() {
         viewModel?.getListOfPokemons { [weak self] result in
             switch result {
-            case .success:
+            case .success():
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
+                    self?.viewModel?.loadDataFromDatabase()
+                    self?.tableView.reloadData()
                     let alert = UIAlertController(title: TextForAlert.titleForAlert, message: TextForAlert.messageForAlert, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: TextForAlert.doneButtonNameForAlert, style: .default))
                     self?.present(alert, animated: true, completion: nil)

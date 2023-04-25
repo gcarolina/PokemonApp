@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol MainScreenTableViewProtocol {
     var rowHeight: Double { get }
@@ -13,13 +14,16 @@ protocol MainScreenTableViewProtocol {
     func pokemonName(at index: Int) -> String
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainScreenCellViewModelProtocol?
     func getListOfPokemons(completion: @escaping (Result<Void, Error>) -> Void)
+    func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
     func viewModelForSelectedRow() -> DetailPokemonViewProtocol?
 }
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
+    let realm = try! Realm()
     var mainResultResponse: MainResultResponse?
+    var dataSource: [ResultResponse] = []
     private var selectedIndexPath: IndexPath?
     var rowHeight = 100.0
     
@@ -58,5 +62,12 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
         guard let pokemonURL = mainResultResponse?.results[selectedIndexPath.row].url else { return nil }
         return DetailPokemonViewModel(pokemonUrl: pokemonURL)
+    }
+    
+    func loadDataFromDatabase() {
+        let results = StorageManager.getAllPokemons()
+        guard let mainResultResponseObject = results.first else { return }
+        mainResultResponse = mainResultResponseObject.toMainResultResponse()
+        dataSource = mainResultResponse?.results ?? []
     }
 }

@@ -14,19 +14,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         baseViewModel = BaseViewModel()
-        DispatchQueue.main.async {
-            let realm = try! Realm()
-            let allPokemons = realm.objects(MainResultResponseObject.self)
-            for pokemon in allPokemons {
-                print(pokemon.count)
-                print(pokemon.next)
-                print(pokemon.previous)
-                for result in pokemon.results {
-                    print(result.name)
-                    print(result.url)
-                }
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

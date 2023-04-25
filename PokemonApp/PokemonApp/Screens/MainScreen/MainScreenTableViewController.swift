@@ -8,7 +8,11 @@
 import UIKit
 
 final class MainScreenTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
+    
+    // MARK: - let/var
     private var viewModel: MainScreenTableViewProtocol?
     var mainResultResponse: MainResultResponse?
     
@@ -28,9 +32,11 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ConstantsForReuseIdentifier.reuseIdentifierForMainScreenTableViewCell, for: indexPath) as? MainScreenTableViewCell
+        
         guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         tableViewCell.cellViewModel = cellViewModel
+        
         return tableViewCell
     }
     
@@ -42,13 +48,14 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
         viewModel.selectRow(atIndexPath: indexPath)
+        
         let storyboard = UIStoryboard(name: ConstantsForStoryboardsAndViewController.detailPokemonStoryboard, bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: ConstantsForStoryboardsAndViewController.detailPokemonViewController) as? DetailPokemonViewController else { return }
         vc.detailViewModel = viewModel.viewModelForSelectedRow()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK: - Private functions
+    // MARK: - Private functions
     private func getAllPokemons() {
         viewModel?.getListOfPokemons { [weak self] result in
             switch result {

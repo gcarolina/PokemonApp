@@ -15,6 +15,7 @@ protocol MainScreenCellViewModelProtocol {
 }
 
 final class MainScreenCellViewModel: MainScreenCellViewModelProtocol {
+   
     private var pokemon: ResultResponse
     private let borderWidth: CGFloat = 9.5
     private let cornerRadius = 45.0

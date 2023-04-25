@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class MainResultResponseObject: Object {
+    
     @objc dynamic var count: Int = 0
     @objc dynamic var next: String = ""
     @objc dynamic var previous: String? = nil

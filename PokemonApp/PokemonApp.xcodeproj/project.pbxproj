@@ -45,6 +45,7 @@
 		F1DE219029F7F2E7001C0210 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE218F29F7F2E7001C0210 /* NetworkError.swift */; };
 		F1DE219229F7F3BD001C0210 /* ReachabilityConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */; };
 		F1DE219729F7F826001C0210 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219629F7F826001C0210 /* Constants.swift */; };
+		F1DE219A29F805BA001C0210 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219929F805BA001C0210 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		F1DE218F29F7F2E7001C0210 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityConnection.swift; sourceTree = "<group>"; };
 		F1DE219629F7F826001C0210 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1DE219929F805BA001C0210 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			children = (
 				F1DE218D29F7F23A001C0210 /* Entity */,
 				F1DE219329F7F5B7001C0210 /* Networking */,
+				F1DE219829F80565001C0210 /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -307,6 +310,14 @@
 				F1DE219629F7F826001C0210 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F1DE219829F80565001C0210 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE219929F805BA001C0210 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +418,7 @@
 				F1DE217429F6D22A001C0210 /* BaseViewController.swift in Sources */,
 				F1DE219729F7F826001C0210 /* Constants.swift in Sources */,
 				F1DE214B29F57245001C0210 /* TypeOfPokemon.swift in Sources */,
+				F1DE219A29F805BA001C0210 /* UIViewController.swift in Sources */,
 				F1DE219229F7F3BD001C0210 /* ReachabilityConnection.swift in Sources */,
 				F1DE218129F714BF001C0210 /* MainResultResponseObject.swift in Sources */,
 				F1DE219029F7F2E7001C0210 /* NetworkError.swift in Sources */,

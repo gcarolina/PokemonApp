@@ -35,7 +35,7 @@ final class DetailPokemonViewController: BaseViewController {
     }
     
     private func createBarButtonItem() {
-        let backButton = createButton(imageName: DetailPokemonViewModel.backImageName,
+        let backButton = createButton(imageName: ConstantsForImages.backImageName,
                                       tintColor: UIColor(red: 0, green: 73/255, blue: 190/255, alpha: 1),
                                       backgroundColor: UIColor(red: 255/255, green: 204/255, blue: 0, alpha: 1),
                                       target: self, action: #selector(backButtonTapped))

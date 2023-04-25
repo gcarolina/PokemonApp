@@ -23,8 +23,8 @@ class BaseViewController: UIViewController {
                 self.view.window?.rootViewController?.dismiss(animated: true)
             },
             onUnreachable: {
-                let storyboard = UIStoryboard(name: NetworkErrorViewController.networkErrorStoryboard, bundle: nil)
-                guard let networkVC = storyboard.instantiateViewController(withIdentifier: NetworkErrorViewController.networkErrorViewController) as? NetworkErrorViewController else { return }
+                let storyboard = UIStoryboard(name: ConstantsForStoryboardsAndViewController.networkErrorStoryboard, bundle: nil)
+                guard let networkVC = storyboard.instantiateViewController(withIdentifier: ConstantsForStoryboardsAndViewController.networkErrorViewController) as? NetworkErrorViewController else { return }
                 self.present(networkVC, animated: true)
             },
             onError: { error in

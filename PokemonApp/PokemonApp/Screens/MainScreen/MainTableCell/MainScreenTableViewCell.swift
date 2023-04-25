@@ -8,9 +8,7 @@
 import UIKit
 
 final class MainScreenTableViewCell: UITableViewCell {
-    
-    static let reuseIdentifier = "MainScreenTableViewCell"
-    
+
     @IBOutlet weak var pokemonName: UILabel!
     private let borderWidth: CGFloat = 9.5
     private let cornerRadius = 45.0

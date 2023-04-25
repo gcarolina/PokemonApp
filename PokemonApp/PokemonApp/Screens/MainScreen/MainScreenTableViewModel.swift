@@ -21,6 +21,7 @@ protocol MainScreenTableViewProtocol {
 }
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
+   
     let realm = try! Realm()
     var mainResultResponse: MainResultResponse?
     var dataSource: [ResultResponse] = []
@@ -28,7 +29,7 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
     var rowHeight = 100.0
     
     func numberOfRows() -> Int {
-        mainResultResponse?.results.count ?? 0
+        mainResultResponse?.results.count ?? .zero
     }
     
     func pokemonName(at index: Int) -> String {

@@ -9,8 +9,11 @@ import UIKit
 import RealmSwift
 
 class BaseViewController: UIViewController {
+   
+    // MARK: - let/var
     var baseViewModel: BaseProtocol?
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         baseViewModel = BaseViewModel()

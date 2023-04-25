@@ -14,6 +14,7 @@ protocol BaseProtocol {
 }
 
 class BaseViewModel: BaseProtocol {
+    
     let reachability = try! Reachability()
     
     func startReachabilityNotifier(onReachable: @escaping () -> Void, onUnreachable: @escaping () -> Void, onError: @escaping (String) -> Void) {

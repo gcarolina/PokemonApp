@@ -9,20 +9,24 @@ import UIKit
 
 final class DetailPokemonViewController: BaseViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet private weak var pokemonImage: UIImageView!
     @IBOutlet private weak var nameOfPokemon: UILabel!
     @IBOutlet private weak var height: UILabel!
     @IBOutlet private weak var weight: UILabel!
     @IBOutlet private weak var types: UILabel!
     
+    // MARK: - let/var
     var detailViewModel: DetailPokemonViewProtocol?
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         createBarButtonItem()
         getInfoOfPokemon()
     }
     
+    // MARK: - Private functions
     private func createButton(imageName: String, tintColor: UIColor, backgroundColor: UIColor, target: Any?, action: Selector?) -> UIButton {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: imageName), for: .normal)

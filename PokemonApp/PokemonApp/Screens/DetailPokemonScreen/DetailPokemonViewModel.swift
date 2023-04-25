@@ -17,6 +17,7 @@ protocol DetailPokemonViewProtocol {
 }
 
 final class DetailPokemonViewModel: DetailPokemonViewProtocol {
+    
     var pokemonCharacteristics: PokemonCharacteristics?
     private var pokemonUrl: String?
         

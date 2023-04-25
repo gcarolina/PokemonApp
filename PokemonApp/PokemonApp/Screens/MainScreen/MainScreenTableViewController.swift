@@ -23,7 +23,7 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.numberOfRows() ?? 0
+        viewModel?.numberOfRows() ?? .zero
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,7 +36,7 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     
     // MARK: - Table view delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        CGFloat(viewModel?.rowHeight ?? 0)
+        CGFloat(viewModel?.rowHeight ?? .zero)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,7 +56,7 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
-            case .failure(let error):
+            case .failure(_):
                 DispatchQueue.main.async {
                     self?.viewModel?.loadDataFromDatabase()
                     self?.tableView.reloadData()

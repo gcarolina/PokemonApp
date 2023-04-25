@@ -25,8 +25,8 @@ final class DetailPokemonViewModel: DetailPokemonViewProtocol {
     }
 
     var name: String { pokemonCharacteristics?.name ?? "" }
-    var height: String { String(describing: "\((pokemonCharacteristics?.height ?? 0) * 10) cm") }
-    var weight: String { String(describing: "\((pokemonCharacteristics?.weight ?? 0) / 10) kg") }
+    var height: String { String(describing: "\((pokemonCharacteristics?.height ?? .zero) * 10) cm") }
+    var weight: String { String(describing: "\((pokemonCharacteristics?.weight ?? .zero) / 10) kg") }
     var types: [Types] { pokemonCharacteristics?.types ?? [] }
     
     func getPokemonCharacteristics(completion: @escaping (Result<Void, Error>) -> Void) {

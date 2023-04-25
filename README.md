@@ -19,5 +19,5 @@ Overall, the Pokemon app is an excellent tool for any Pokemon enthusiast who wan
 ## Appearance
 <img src="https://user-images.githubusercontent.com/70655454/234294483-0b607016-7776-48c2-9c4a-651be5737e94.jpg" width="220" height="400">
 <img src="https://user-images.githubusercontent.com/70655454/234294735-88304cc2-ca65-4348-82a8-916186ba2852.jpg" width="220" height="400">
-<img src="https://user-images.githubusercontent.com/70655454/234295635-bc259503-4b62-47a8-a298-d221162646e5.jpg" width="220" height="4000">
-<img src="https://user-images.githubusercontent.com/70655454/234294920-9d98dbfd-112e-4626-8087-c97be0b2c3af.jpg" width="220" height="4000">
+<img src="https://user-images.githubusercontent.com/70655454/234295635-bc259503-4b62-47a8-a298-d221162646e5.jpg" width="220" height="400">
+<img src="https://user-images.githubusercontent.com/70655454/234294920-9d98dbfd-112e-4626-8087-c97be0b2c3af.jpg" width="220" height="400">

@@ -16,8 +16,8 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MainScreenTableViewModel()
-        let cellNib = UINib(nibName: MainScreenTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: MainScreenTableViewCell.reuseIdentifier)
+        let cellNib = UINib(nibName: ConstantsForReuseIdentifier.reuseIdentifierForMainScreenTableViewCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: ConstantsForReuseIdentifier.reuseIdentifierForMainScreenTableViewCell)
         getAllPokemons()
     }
     
@@ -27,7 +27,7 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenTableViewCell.reuseIdentifier, for: indexPath) as? MainScreenTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConstantsForReuseIdentifier.reuseIdentifierForMainScreenTableViewCell, for: indexPath) as? MainScreenTableViewCell
         guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         tableViewCell.cellViewModel = cellViewModel
@@ -42,8 +42,8 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
         viewModel.selectRow(atIndexPath: indexPath)
-        let storyboard = UIStoryboard(name: DetailPokemonViewModel.detailPokemonStoryboard, bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: DetailPokemonViewModel.detailPokemonViewController) as? DetailPokemonViewController else { return }
+        let storyboard = UIStoryboard(name: ConstantsForStoryboardsAndViewController.detailPokemonStoryboard, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: ConstantsForStoryboardsAndViewController.detailPokemonViewController) as? DetailPokemonViewController else { return }
         vc.detailViewModel = viewModel.viewModelForSelectedRow()
         navigationController?.pushViewController(vc, animated: true)
     }

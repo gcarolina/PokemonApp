@@ -11,10 +11,9 @@ import AlamofireImage
 import SwiftyJSON
 
 final class NetworkService {
-    static let urlForListOfPokemons = "https://pokeapi.co/api/v2/pokemon"
     
     static func getPokemons(completion: @escaping (Result<MainResultResponse, Error>) -> Void) {
-        guard let url = URL(string: NetworkService.urlForListOfPokemons) else {
+        guard let url = URL(string: RequestURL.urlForListOfPokemons) else {
             completion(.failure(NetworkError.invalidUrl))
             return
         }

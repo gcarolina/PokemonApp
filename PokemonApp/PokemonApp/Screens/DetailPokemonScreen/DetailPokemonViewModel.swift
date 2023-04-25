@@ -17,10 +17,6 @@ protocol DetailPokemonViewProtocol {
 }
 
 final class DetailPokemonViewModel: DetailPokemonViewProtocol {
-    static let detailPokemonStoryboard = "DetailPokemonStoryboard"
-    static let detailPokemonViewController = "DetailPokemonViewController"
-    static let backImageName = "chevron.backward"
-    
     var pokemonCharacteristics: PokemonCharacteristics?
     private var pokemonUrl: String?
         

@@ -42,6 +42,9 @@
 		F1DE218129F714BF001C0210 /* MainResultResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE218029F714BF001C0210 /* MainResultResponseObject.swift */; };
 		F1DE218329F71592001C0210 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE218229F71592001C0210 /* StorageManager.swift */; };
 		F1DE218529F731FB001C0210 /* ResultResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE218429F731FB001C0210 /* ResultResponseObject.swift */; };
+		F1DE219029F7F2E7001C0210 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE218F29F7F2E7001C0210 /* NetworkError.swift */; };
+		F1DE219229F7F3BD001C0210 /* ReachabilityConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */; };
+		F1DE219729F7F826001C0210 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219629F7F826001C0210 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		F1DE218029F714BF001C0210 /* MainResultResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResultResponseObject.swift; sourceTree = "<group>"; };
 		F1DE218229F71592001C0210 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F1DE218429F731FB001C0210 /* ResultResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultResponseObject.swift; sourceTree = "<group>"; };
+		F1DE218F29F7F2E7001C0210 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityConnection.swift; sourceTree = "<group>"; };
+		F1DE219629F7F826001C0210 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,16 +120,13 @@
 		F1652B6B29EF349700B8D3AC /* PokemonApp */ = {
 			isa = PBXGroup;
 			children = (
-				F1DE214E29F57333001C0210 /* Services */,
-				F1DE218629F73229001C0210 /* Managers */,
-				F1DE216729F6662B001C0210 /* NetworkMonitor */,
-				F1DE214129F57195001C0210 /* Models */,
-				F1DE213529F56D43001C0210 /* MainScreen */,
-				F1DE215E29F58A33001C0210 /* DetailPokemonScreen */,
-				F1DE215D29F57701001C0210 /* Views */,
+				F1DE218A29F7EB51001C0210 /* Screens */,
+				F1DE218C29F7F210001C0210 /* Core */,
+				F1DE219529F7F7F6001C0210 /* Utilities */,
 				F1DE215C29F576EC001C0210 /* AppDelegates */,
-				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
+				F1652B7229EF349700B8D3AC /* Main.storyboard */,
 				F1652B7A29EF349E00B8D3AC /* Info.plist */,
+				F1DE218B29F7F16F001C0210 /* Support */,
 			);
 			path = PokemonApp;
 			sourceTree = "<group>";
@@ -141,14 +144,14 @@
 		F1DE213A29F56ED3001C0210 /* MainTableCell */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE213E29F56F1D001C0210 /* MainScreenTableViewCell.xib */,
 				F1DE213D29F56F1D001C0210 /* MainScreenTableViewCell.swift */,
 				F1DE213B29F56EEA001C0210 /* MainScreenCellViewModel.swift */,
-				F1DE213E29F56F1D001C0210 /* MainScreenTableViewCell.xib */,
 			);
 			path = MainTableCell;
 			sourceTree = "<group>";
 		};
-		F1DE214129F57195001C0210 /* Models */ = {
+		F1DE214129F57195001C0210 /* Network Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				F1DE214229F571B8001C0210 /* MainResultResponse.swift */,
@@ -157,16 +160,14 @@
 				F1DE214829F57224001C0210 /* Sprites.swift */,
 				F1DE214C29F57263001C0210 /* Types.swift */,
 				F1DE214A29F57245001C0210 /* TypeOfPokemon.swift */,
-				F1DE217929F6F589001C0210 /* TextForAlert.swift */,
 			);
-			path = Models;
+			path = "Network Data Models";
 			sourceTree = "<group>";
 		};
 		F1DE214E29F57333001C0210 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				F1DE214F29F57345001C0210 /* NetworkService.swift */,
-				F1DE216529F5C2E1001C0210 /* CacheManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,15 +179,6 @@
 				F1652B6E29EF349700B8D3AC /* SceneDelegate.swift */,
 			);
 			path = AppDelegates;
-			sourceTree = "<group>";
-		};
-		F1DE215D29F57701001C0210 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F1652B7229EF349700B8D3AC /* Main.storyboard */,
-				F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F1DE215E29F58A33001C0210 /* DetailPokemonScreen */ = {
@@ -203,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DE217829F6E9BF001C0210 /* NetworkErrorController */,
-				F1DE217729F6E9A1001C0210 /* BaseViewController */,
+				F1DE219429F7F67D001C0210 /* Helpers */,
 			);
 			path = NetworkMonitor;
 			sourceTree = "<group>";
@@ -229,6 +221,7 @@
 		F1DE218629F73229001C0210 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE216529F5C2E1001C0210 /* CacheManager.swift */,
 				F1DE218229F71592001C0210 /* StorageManager.swift */,
 				F1DE218929F7E317001C0210 /* Objects for DataBase */,
 			);
@@ -242,6 +235,78 @@
 				F1DE218429F731FB001C0210 /* ResultResponseObject.swift */,
 			);
 			path = "Objects for DataBase";
+			sourceTree = "<group>";
+		};
+		F1DE218A29F7EB51001C0210 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE213529F56D43001C0210 /* MainScreen */,
+				F1DE215E29F58A33001C0210 /* DetailPokemonScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F1DE218B29F7F16F001C0210 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				F1652B7529EF349E00B8D3AC /* Assets.xcassets */,
+				F1652B7729EF349E00B8D3AC /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		F1DE218C29F7F210001C0210 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE218D29F7F23A001C0210 /* Entity */,
+				F1DE219329F7F5B7001C0210 /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F1DE218D29F7F23A001C0210 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE214129F57195001C0210 /* Network Data Models */,
+				F1DE218E29F7F27B001C0210 /* Enums */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F1DE218E29F7F27B001C0210 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE217929F6F589001C0210 /* TextForAlert.swift */,
+				F1DE218F29F7F2E7001C0210 /* NetworkError.swift */,
+				F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		F1DE219329F7F5B7001C0210 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE214E29F57333001C0210 /* Services */,
+				F1DE218629F73229001C0210 /* Managers */,
+				F1DE216729F6662B001C0210 /* NetworkMonitor */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F1DE219429F7F67D001C0210 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE217729F6E9A1001C0210 /* BaseViewController */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F1DE219529F7F7F6001C0210 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE219629F7F826001C0210 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,8 +405,11 @@
 				F1DE213F29F56F1D001C0210 /* MainScreenTableViewCell.swift in Sources */,
 				F1DE216429F595C2001C0210 /* DetailPokemonViewModel.swift in Sources */,
 				F1DE217429F6D22A001C0210 /* BaseViewController.swift in Sources */,
+				F1DE219729F7F826001C0210 /* Constants.swift in Sources */,
 				F1DE214B29F57245001C0210 /* TypeOfPokemon.swift in Sources */,
+				F1DE219229F7F3BD001C0210 /* ReachabilityConnection.swift in Sources */,
 				F1DE218129F714BF001C0210 /* MainResultResponseObject.swift in Sources */,
+				F1DE219029F7F2E7001C0210 /* NetworkError.swift in Sources */,
 				F1DE213729F56D64001C0210 /* MainScreenTableViewController.swift in Sources */,
 				F1DE214529F571E0001C0210 /* PokemonCharacteristics.swift in Sources */,
 				F1652B6F29EF349700B8D3AC /* SceneDelegate.swift in Sources */,

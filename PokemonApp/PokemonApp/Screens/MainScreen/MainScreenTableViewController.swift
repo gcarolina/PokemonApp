@@ -61,8 +61,8 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                 DispatchQueue.main.async {
                     self?.viewModel?.loadDataFromDatabase()
                     self?.tableView.reloadData()
-                    let alert = UIAlertController(title: TextForAlert.titleForAlert, message: TextForAlert.messageForAlert, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: TextForAlert.doneButtonNameForAlert, style: .default))
+                    let alert = UIAlertController(title: TextForAlert.titleForAlert.rawValue, message: TextForAlert.messageForAlert.rawValue, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: TextForAlert.doneButtonNameForAlert.rawValue, style: .default))
                     self?.present(alert, animated: true, completion: nil)
                 }
             }

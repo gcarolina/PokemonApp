@@ -5,18 +5,10 @@
 //  Created by Carolina on 23.04.23.
 //
 
-import Foundation
-
 import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
-
-enum NetworkError: Error {
-    case invalidUrl
-    case invalidResponse
-    case invalidData
-}
 
 final class NetworkService {
     static let urlForListOfPokemons = "https://pokeapi.co/api/v2/pokemon"

@@ -8,13 +8,6 @@
 import UIKit
 import Reachability
 
-enum ReachabilityConnection: String {
-    case wifi = "Reachable via WiFi"
-    case cellular = "Reachable via Cellular"
-    case notReachable = "Not reachable"
-    case unableNotifier = "Unable to start notifier"
-}
-
 protocol BaseProtocol {
     func startReachabilityNotifier(onReachable: @escaping () -> Void, onUnreachable: @escaping () -> Void, onError: @escaping (String) -> Void)
     func stopReachabilityNotifier()

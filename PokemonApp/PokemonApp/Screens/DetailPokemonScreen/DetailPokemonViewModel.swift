@@ -46,7 +46,7 @@ final class DetailPokemonViewModel: DetailPokemonViewProtocol {
     }
     
     func getImage(completion: @escaping (UIImage?) -> Void) {
-        guard let image = pokemonCharacteristics?.sprites.front_default else { return }
+        guard let image = pokemonCharacteristics?.sprites.frontDefault else { return }
         NetworkService.getPhoto(imageURL: image) { image, error in
             completion(image)
         }

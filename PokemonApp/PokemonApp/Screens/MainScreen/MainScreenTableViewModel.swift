@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 protocol MainScreenTableViewProtocol {
     var rowHeight: Double { get }
@@ -22,7 +21,6 @@ protocol MainScreenTableViewProtocol {
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
    
-    let realm = try! Realm()
     var mainResultResponse: MainResultResponse?
     var dataSource: [ResultResponse] = []
     private var selectedIndexPath: IndexPath?

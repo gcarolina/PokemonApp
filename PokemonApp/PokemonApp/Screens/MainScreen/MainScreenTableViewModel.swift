@@ -24,7 +24,7 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
     var mainResultResponse: MainResultResponse?
     var dataSource: [ResultResponse] = []
     private var selectedIndexPath: IndexPath?
-    var rowHeight = 100.0
+    let rowHeight = MainScreenConstants.rowHeight
     
     func numberOfRows() -> Int {
         mainResultResponse?.results.count ?? .zero

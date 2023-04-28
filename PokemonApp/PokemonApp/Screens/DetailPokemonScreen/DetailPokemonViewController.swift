@@ -32,16 +32,16 @@ final class DetailPokemonViewController: BaseViewController {
         button.setImage(UIImage(systemName: imageName), for: .normal)
         button.tintColor = tintColor
         button.addTarget(target, action: #selector(backButtonTapped), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.layer.cornerRadius = 20
+        button.frame = DetailScreenConstants.buttonFrame
+        button.layer.cornerRadius = DetailScreenConstants.buttonCornerRadius
         button.backgroundColor = backgroundColor
         return button
     }
     
     private func createBarButtonItem() {
         let backButton = createButton(imageName: ConstantsForImages.backImageName,
-                                      tintColor: UIColor(red: 0, green: 73/255, blue: 190/255, alpha: 1),
-                                      backgroundColor: UIColor(red: 255/255, green: 204/255, blue: 0, alpha: 1),
+                                      tintColor: DetailScreenConstants.buttonTintColor,
+                                      backgroundColor: DetailScreenConstants.buttonBackgroundColor,
                                       target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
@@ -66,7 +66,7 @@ final class DetailPokemonViewController: BaseViewController {
                         }
                     }
                 }
-            case .failure(let error):
+            case .failure(_):
                 DispatchQueue.main.async {
                     self?.showAlert(titleForAlert: TextForAlert.titleForAlert.rawValue, messageForAlert: TextForAlert.messageForAlert.rawValue, doneButtonNameForAlert: TextForAlert.doneButtonNameForAlert.rawValue)
                 }
@@ -80,7 +80,7 @@ final class DetailPokemonViewController: BaseViewController {
             for type in types {
                 typesNames += "\(type.type.name), "
             }
-            typesNames = String(typesNames.dropLast(2))
+            typesNames = String(typesNames.dropLast(DetailScreenConstants.numberOfCharsToRemove))
         }
         self.types.text = typesNames
     }

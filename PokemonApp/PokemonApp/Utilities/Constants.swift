@@ -32,6 +32,10 @@ struct MainScreenConstants {
     static let cornerRadius = 45.0
     static let borderWidth: CGFloat = 9.5
     static let borderColor = UIColor(red: 10/255, green: 40/255, blue: 95/255, alpha: 1).cgColor
+    static let pageSize = 20
+    static var currentPage = 1
+    static let lastRowIndex = 1
+    static let incrementBy = 1
 }
 
 struct DetailScreenConstants {

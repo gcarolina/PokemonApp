@@ -12,8 +12,8 @@ protocol MainScreenTableViewProtocol {
     func numberOfRows() -> Int
     func pokemonName(at index: Int) -> String
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainScreenCellViewModelProtocol?
-    func getListOfPokemons(completion: @escaping (Result<Void, Error>) -> Void)
-    func loadDataFromDatabase()
+    func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void)
+//    func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
     func viewModelForSelectedRow() -> DetailPokemonViewProtocol?
@@ -39,12 +39,16 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
         return MainScreenCellViewModel(pokemon: pokemon)
     }
     
-    func getListOfPokemons(completion: @escaping (Result<Void, Error>) -> Void) {
-        NetworkService.getPokemons { [weak self] result in
+    func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        NetworkService.getPokemons(page: page, pageSize: pageSize) { [weak self] result in
             switch result {
             case .success(let pokemons):
                 DispatchQueue.main.async {
-                    self?.mainResultResponse = pokemons
+                    if page == 1 {
+                        self?.mainResultResponse = pokemons
+                    } else {
+                        self?.mainResultResponse?.results.append(contentsOf: pokemons.results)
+                    }
                     completion(.success(()))
                 }
             case .failure(let error):

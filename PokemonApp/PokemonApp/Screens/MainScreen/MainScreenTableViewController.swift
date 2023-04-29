@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainScreenTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-   
+    
     // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
     
@@ -55,9 +55,15 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (viewModel?.numberOfRows() ?? .zero) - MainScreenConstants.lastRowIndex {
+            loadMoreData()
+        }
+    }
+
     // MARK: - Private functions
     private func getAllPokemons() {
-        viewModel?.getListOfPokemons { [weak self] result in
+        viewModel?.getListOfPokemons(page: MainScreenConstants.currentPage, pageSize: MainScreenConstants.pageSize) { [weak self] result in
             switch result {
             case .success():
                 DispatchQueue.main.async {
@@ -65,11 +71,16 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                 }
             case .failure(_):
                 DispatchQueue.main.async {
-                    self?.viewModel?.loadDataFromDatabase()
+//                    self?.viewModel?.loadDataFromDatabase()
                     self?.tableView.reloadData()
                     self?.showAlert(titleForAlert: TextForAlert.titleForAlert.rawValue, messageForAlert: TextForAlert.messageForAlert.rawValue, doneButtonNameForAlert: TextForAlert.doneButtonNameForAlert.rawValue)
                 }
             }
         }
+    }
+    
+    private func loadMoreData() {
+        MainScreenConstants.currentPage += MainScreenConstants.incrementBy
+        getAllPokemons()
     }
 }

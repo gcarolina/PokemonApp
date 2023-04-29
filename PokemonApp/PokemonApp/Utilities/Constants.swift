@@ -24,7 +24,8 @@ struct ConstantsForImages {
 }
 
 struct RequestURL {
-    static let urlForListOfPokemons = "https://pokeapi.co/api/v2/pokemon"
+    static let urlForListOfPokemons = "https://pokeapi.co/api/v2/pokemon?limit="
+    static let urlOffset = "&offset="
 }
 
 struct MainScreenConstants {

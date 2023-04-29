@@ -13,7 +13,6 @@ protocol MainScreenTableViewProtocol {
     func pokemonName(at index: Int) -> String
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainScreenCellViewModelProtocol?
     func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void)
-//    func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
     func viewModelForSelectedRow() -> DetailPokemonViewProtocol?

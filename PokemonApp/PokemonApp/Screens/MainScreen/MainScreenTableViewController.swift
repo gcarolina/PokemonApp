@@ -71,7 +71,6 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                 }
             case .failure(_):
                 DispatchQueue.main.async {
-//                    self?.viewModel?.loadDataFromDatabase()
                     self?.tableView.reloadData()
                     self?.showAlert(titleForAlert: TextForAlert.titleForAlert.rawValue, messageForAlert: TextForAlert.messageForAlert.rawValue, doneButtonNameForAlert: TextForAlert.doneButtonNameForAlert.rawValue)
                 }

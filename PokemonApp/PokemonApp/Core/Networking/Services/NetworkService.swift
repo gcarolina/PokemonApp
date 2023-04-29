@@ -14,7 +14,7 @@ final class NetworkService {
     
     static func getPokemons(page: Int, pageSize: Int, completion: @escaping (Result<MainResultResponse, Error>) -> Void) {
         let offset = (page - 1) * pageSize
-        guard let url = URL(string: "\(RequestURL.urlForListOfPokemons)?limit=\(pageSize)&offset=\(offset)") else {
+        guard let url = URL(string: RequestURL.urlForListOfPokemons + String(pageSize) + RequestURL.urlOffset + String(offset)) else {
             completion(.failure(NetworkError.invalidUrl))
             return
         }
@@ -38,20 +38,20 @@ final class NetworkService {
             
             do {
                 let mainResultResponse = try JSONDecoder().decode(MainResultResponse.self, from: data)
+                let mainResultResponseObject = MainResultResponseObject(value: [
+                    ObjectResultResponse.count.rawValue: mainResultResponse.count,
+                    ObjectResultResponse.next.rawValue: mainResultResponse.next,
+                    ObjectResultResponse.previous.rawValue: mainResultResponse.previous
+                ])
+                mainResultResponse.results.forEach { result in
+                    let resultResponseObject = ResultResponseObject(value: [
+                        ObjectResultResponse.name.rawValue: result.name,
+                        ObjectResultResponse.url.rawValue: result.url
+                    ])
+                    mainResultResponseObject.results.append(resultResponseObject)
+                }
                 
-//                let mainResultResponseObject = MainResultResponseObject()
-//                mainResultResponseObject.count = mainResultResponse.count
-//                mainResultResponseObject.next = mainResultResponse.next
-//                mainResultResponseObject.previous = mainResultResponse.previous
-//
-//                for result in mainResultResponse.results {
-//                    let resultObject = ResultResponseObject()
-//                    resultObject.name = result.name
-//                    resultObject.url = result.url
-//
-//                    mainResultResponseObject.results.append(resultObject)
-//                }
-//                StorageManager.savePokemonsInfo(mainResultResponseObject: mainResultResponseObject)
+                StorageManager.savePokemonsInfo(mainResultResponseObject: mainResultResponseObject)
                 completion(.success(mainResultResponse))
             } catch {
                 completion(.failure(error))

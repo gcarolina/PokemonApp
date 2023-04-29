@@ -48,6 +48,7 @@
 		F1DE219A29F805BA001C0210 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219929F805BA001C0210 /* UIViewController.swift */; };
 		F1DE219C29FB214B001C0210 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219B29FB214B001C0210 /* NavigationBarColor.swift */; };
 		F1DE21A029FC69AE001C0210 /* UnitsOfMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE219F29FC69AE001C0210 /* UnitsOfMeasurement.swift */; };
+		F1DE21A229FDA8B2001C0210 /* ObjectResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE21A129FDA8B2001C0210 /* ObjectResultResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		F1DE219929F805BA001C0210 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F1DE219B29FB214B001C0210 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		F1DE219F29FC69AE001C0210 /* UnitsOfMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasurement.swift; sourceTree = "<group>"; };
+		F1DE21A129FDA8B2001C0210 /* ObjectResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectResultResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				F1DE219129F7F3BD001C0210 /* ReachabilityConnection.swift */,
 				F1DE219B29FB214B001C0210 /* NavigationBarColor.swift */,
 				F1DE219F29FC69AE001C0210 /* UnitsOfMeasurement.swift */,
+				F1DE21A129FDA8B2001C0210 /* ObjectResultResponse.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				F1DE214929F57224001C0210 /* Sprites.swift in Sources */,
 				F1DE21A029FC69AE001C0210 /* UnitsOfMeasurement.swift in Sources */,
 				F1DE217A29F6F589001C0210 /* TextForAlert.swift in Sources */,
+				F1DE21A229FDA8B2001C0210 /* ObjectResultResponse.swift in Sources */,
 				F1DE214D29F57263001C0210 /* Types.swift in Sources */,
 				F1DE213F29F56F1D001C0210 /* MainScreenTableViewCell.swift in Sources */,
 				F1DE216429F595C2001C0210 /* DetailPokemonViewModel.swift in Sources */,

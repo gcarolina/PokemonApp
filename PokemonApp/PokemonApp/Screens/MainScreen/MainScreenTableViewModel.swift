@@ -13,13 +13,14 @@ protocol MainScreenTableViewProtocol {
     func pokemonName(at index: Int) -> String
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainScreenCellViewModelProtocol?
     func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void)
+    func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
     func viewModelForSelectedRow() -> DetailPokemonViewProtocol?
 }
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
-   
+    
     var mainResultResponse: MainResultResponse?
     var dataSource: [ResultResponse] = []
     private var selectedIndexPath: IndexPath?
@@ -67,9 +68,12 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
     }
     
     func loadDataFromDatabase() {
-        let results = StorageManager.getAllPokemons()
-        guard let mainResultResponseObject = results.first else { return }
-        mainResultResponse = mainResultResponseObject.toMainResultResponse()
-        dataSource = mainResultResponse?.results ?? []
+        let mainResultResponseObjects = StorageManager.getAllPokemons()
+        var mainResultResponses: [MainResultResponse] = []
+        mainResultResponseObjects.forEach { mainResultResponseObject in
+            let mainResultResponse = mainResultResponseObject.toMainResultResponse()
+            mainResultResponses.append(mainResultResponse)
+        }
+        dataSource = mainResultResponses.last?.results ?? []
     }
 }

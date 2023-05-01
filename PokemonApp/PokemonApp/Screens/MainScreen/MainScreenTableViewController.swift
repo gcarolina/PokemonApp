@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class MainScreenTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -57,12 +58,17 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (viewModel?.numberOfRows() ?? .zero) - MainScreenConstants.lastRowIndex {
-            loadMoreData()
+            let isConnectedToInternet = baseViewModel?.reachability.connection ?? .unavailable != .unavailable
+            if isConnectedToInternet {
+                loadMoreData()
+//            } else {
+//                viewModel?.loadDataFromDatabase()
+            }
         }
     }
 
     // MARK: - Private functions
-    private func getAllPokemons() {
+    func getAllPokemons() {
         viewModel?.getListOfPokemons(page: MainScreenConstants.currentPage, pageSize: MainScreenConstants.pageSize) { [weak self] result in
             switch result {
             case .success():
@@ -70,9 +76,14 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
                     self?.tableView.reloadData()
                 }
             case .failure(_):
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.showAlert(titleForAlert: TextForAlert.titleForAlert.rawValue, messageForAlert: TextForAlert.messageForAlert.rawValue, doneButtonNameForAlert: TextForAlert.doneButtonNameForAlert.rawValue)
+                guard let realm = try? Realm() else { return }
+                
+                let mainResultResponseObjects = realm.objects(MainResultResponseObject.self)
+                mainResultResponseObjects.forEach { mainResultResponseObject in
+                    _ = mainResultResponseObject.toMainResultResponse()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 }
             }
         }

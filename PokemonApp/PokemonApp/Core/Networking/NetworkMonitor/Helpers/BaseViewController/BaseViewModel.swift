@@ -9,13 +9,14 @@ import UIKit
 import Reachability
 
 protocol BaseProtocol {
+    var reachability: Reachability { get }
     func startReachabilityNotifier(onReachable: @escaping () -> Void, onUnreachable: @escaping () -> Void, onError: @escaping (String) -> Void)
     func stopReachabilityNotifier()
 }
 
 class BaseViewModel: BaseProtocol {
     
-    let reachability = try! Reachability()
+    var reachability = try! Reachability()
     
     func startReachabilityNotifier(onReachable: @escaping () -> Void, onUnreachable: @escaping () -> Void, onError: @escaping (String) -> Void) {
         DispatchQueue.main.async {

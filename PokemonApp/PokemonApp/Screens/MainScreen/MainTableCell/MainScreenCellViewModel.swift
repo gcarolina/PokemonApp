@@ -17,8 +17,6 @@ protocol MainScreenCellViewModelProtocol {
 final class MainScreenCellViewModel: MainScreenCellViewModelProtocol {
    
     private var pokemon: ResultResponse
-    private let borderWidth: CGFloat = 9.5
-    private let cornerRadius = 45.0
     
     init(pokemon: ResultResponse) {
         self.pokemon = pokemon
@@ -33,12 +31,12 @@ final class MainScreenCellViewModel: MainScreenCellViewModelProtocol {
     }
     
     func setCornerRadius(view: UIView) {
-        view.layer.cornerRadius = CGFloat(cornerRadius)
+        view.layer.cornerRadius = CGFloat(MainScreenConstants.cornerRadius)
         view.layer.masksToBounds = true
     }
     
     func setUpUIForBorder(view: UIView) {
-        view.layer.borderColor = UIColor(red: 10/255, green: 40/255, blue: 95/255, alpha: 1).cgColor
-        view.layer.borderWidth = borderWidth
+        view.layer.borderColor = MainScreenConstants.borderColor
+        view.layer.borderWidth = MainScreenConstants.borderWidth
     }
 }

@@ -16,12 +16,17 @@ class StorageManager {
     }
     
     static func savePokemonsInfo(mainResultResponseObject: MainResultResponseObject) {
-        do {
-            try realm.write {
-                realm.add(mainResultResponseObject)
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                let realm = try! Realm()
+                do {
+                    try realm.write {
+                        realm.add(mainResultResponseObject)
+                    }
+                } catch {
+                    print(error)
+                }
             }
-        } catch {
-            print(error)
         }
     }
 }

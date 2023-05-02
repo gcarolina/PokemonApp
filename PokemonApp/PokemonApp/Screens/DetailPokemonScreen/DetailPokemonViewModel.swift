@@ -18,10 +18,12 @@ protocol DetailPokemonViewProtocol {
 
 final class DetailPokemonViewModel: DetailPokemonViewProtocol {
     
+    let networkService: NetworkService
     var pokemonCharacteristics: PokemonCharacteristics?
     private var pokemonUrl: String?
-        
-    init(pokemonUrl: String) {
+    
+    init(networkService: NetworkService, pokemonUrl: String) {
+        self.networkService = networkService
         self.pokemonUrl = pokemonUrl
     }
 
@@ -47,7 +49,7 @@ final class DetailPokemonViewModel: DetailPokemonViewProtocol {
     
     func getImage(completion: @escaping (UIImage?) -> Void) {
         guard let image = pokemonCharacteristics?.sprites.frontDefault else { return }
-        NetworkService.getPhoto(imageURL: image) { image, error in
+        networkService.getPhoto(imageURL: image) { image, error in
             completion(image)
         }
     }

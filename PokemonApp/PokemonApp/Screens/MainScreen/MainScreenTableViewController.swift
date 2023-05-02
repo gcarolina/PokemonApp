@@ -52,7 +52,11 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
         
         let storyboard = UIStoryboard(name: ConstantsForStoryboardsAndViewController.detailPokemonStoryboard, bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: ConstantsForStoryboardsAndViewController.detailPokemonViewController) as? DetailPokemonViewController else { return }
-        vc.detailViewModel = viewModel.viewModelForSelectedRow()
+        
+        let cacheManager = CacheManager(memoryCapacity: 100_000_000, preferredMemoryUsageAfterPurge: 60_000_000)
+        let networkService = NetworkService(cacheManager: cacheManager)
+            
+        vc.detailViewModel = viewModel.viewModelForSelectedRow(networkService: networkService)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -61,8 +65,6 @@ final class MainScreenTableViewController: BaseViewController, UITableViewDelega
             let isConnectedToInternet = baseViewModel?.reachability.connection ?? .unavailable != .unavailable
             if isConnectedToInternet {
                 loadMoreData()
-//            } else {
-//                viewModel?.loadDataFromDatabase()
             }
         }
     }

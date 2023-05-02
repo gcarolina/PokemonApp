@@ -16,7 +16,7 @@ protocol MainScreenTableViewProtocol {
     func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
-    func viewModelForSelectedRow() -> DetailPokemonViewProtocol?
+    func viewModelForSelectedRow(networkService: NetworkService) -> DetailPokemonViewProtocol?
 }
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
@@ -61,10 +61,10 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
         self.selectedIndexPath = indexPath
     }
     
-    func viewModelForSelectedRow() -> DetailPokemonViewProtocol? {
+    func viewModelForSelectedRow(networkService: NetworkService) -> DetailPokemonViewProtocol? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
         guard let pokemonURL = mainResultResponse?.results[selectedIndexPath.row].url else { return nil }
-        return DetailPokemonViewModel(pokemonUrl: pokemonURL)
+        return DetailPokemonViewModel(networkService: networkService, pokemonUrl: pokemonURL)
     }
     
     func loadDataFromDatabase() {

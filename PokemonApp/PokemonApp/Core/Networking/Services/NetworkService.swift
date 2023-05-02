@@ -12,6 +12,27 @@ import SwiftyJSON
 
 final class NetworkService {
     
+    let cacheManager: CacheManager
+    
+    init(cacheManager: CacheManager) {
+        self.cacheManager = cacheManager
+    }
+    
+    func getPhoto(imageURL: String, callback: @escaping (_ image: UIImage?, _ error: Error?) -> Void) {
+        if let image = cacheManager.imageCache.image(withIdentifier: imageURL) {
+            callback(image, nil)
+        } else {
+            AF.request(imageURL).responseImage { response in
+                if case .success(let image) = response.result {
+                    self.cacheManager.imageCache.add(image, withIdentifier: imageURL)
+                    callback(image, nil)
+                } else {
+                    callback(nil, response.error)
+                }
+            }
+        }
+    }
+    
     static func getPokemons(page: Int, pageSize: Int, completion: @escaping (Result<MainResultResponse, Error>) -> Void) {
         let offset = (page - 1) * pageSize
         guard let url = URL(string: RequestURL.urlForListOfPokemons + String(pageSize) + RequestURL.urlOffset + String(offset)) else {
@@ -65,7 +86,7 @@ final class NetworkService {
             completion(.failure(NetworkError.invalidUrl))
             return
         }
-       
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {
@@ -92,20 +113,5 @@ final class NetworkService {
             }
         }
         task.resume()
-    }
-    
-    static func getPhoto(imageURL: String, callback: @escaping (_ image: UIImage?, _ error: Error?) -> Void) {
-        if let image = CacheManager.shared.imageCache.image(withIdentifier: imageURL) {
-            callback(image, nil)
-        } else {
-            AF.request(imageURL).responseImage { response in
-                if case .success(let image) = response.result {
-                    CacheManager.shared.imageCache.add(image, withIdentifier: imageURL)
-                    callback(image, nil)
-                } else {
-                    callback(nil, response.error)
-                }
-            }
-        }
     }
 }

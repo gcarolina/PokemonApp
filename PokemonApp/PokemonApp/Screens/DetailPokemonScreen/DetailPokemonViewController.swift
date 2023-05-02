@@ -54,23 +54,27 @@ final class DetailPokemonViewController: BaseViewController {
         detailViewModel?.getPokemonCharacteristics { [weak self] result in
             switch result {
             case .success:
-                DispatchQueue.main.async {
-                    self?.nameOfPokemon.text = self?.detailViewModel?.name
-                    self?.height.text = self?.detailViewModel?.height
-                    self?.weight.text = self?.detailViewModel?.weight
-                    self?.getPokemonTypes()
-                    
-                    self?.detailViewModel?.getImage { [weak self] image in
-                        DispatchQueue.main.async {
-                            self?.pokemonImage.image = image
-                        }
-                    }
-                }
+                self?.updateUI()
             case .failure(_):
                 DispatchQueue.main.async {
                     self?.showAlert(titleForAlert: TextForAlert.titleForAlert.rawValue, messageForAlert: TextForAlert.messageForAlert.rawValue, doneButtonNameForAlert: TextForAlert.doneButtonNameForAlert.rawValue)
                 }
             }
+        }
+    }
+    
+    private func updateUI() {
+        DispatchQueue.main.async { [weak self] in
+            self?.nameOfPokemon.text = self?.detailViewModel?.name
+            self?.height.text = self?.detailViewModel?.height
+            self?.weight.text = self?.detailViewModel?.weight
+            self?.getPokemonTypes()
+            
+            self?.detailViewModel?.getImage(completion: { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.pokemonImage.image = image
+                }
+            })
         }
     }
     

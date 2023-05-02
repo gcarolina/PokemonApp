@@ -12,6 +12,5 @@ final class NetworkErrorViewController: UIViewController, UIGestureRecognizerDel
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        isModalInPresentation = true
     }
 }

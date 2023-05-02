@@ -6,27 +6,25 @@
 //
 
 import UIKit
-import RealmSwift
 
 protocol MainScreenTableViewProtocol {
     var rowHeight: Double { get }
     func numberOfRows() -> Int
     func pokemonName(at index: Int) -> String
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainScreenCellViewModelProtocol?
-    func getListOfPokemons(completion: @escaping (Result<Void, Error>) -> Void)
+    func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void)
     func loadDataFromDatabase()
     
     func selectRow(atIndexPath indexPath: IndexPath)
-    func viewModelForSelectedRow() -> DetailPokemonViewProtocol?
+    func viewModelForSelectedRow(networkService: NetworkService) -> DetailPokemonViewProtocol?
 }
 
 final class MainScreenTableViewModel: MainScreenTableViewProtocol {
-   
-    let realm = try! Realm()
+    
     var mainResultResponse: MainResultResponse?
     var dataSource: [ResultResponse] = []
     private var selectedIndexPath: IndexPath?
-    var rowHeight = 100.0
+    let rowHeight = MainScreenConstants.rowHeight
     
     func numberOfRows() -> Int {
         mainResultResponse?.results.count ?? .zero
@@ -41,12 +39,16 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
         return MainScreenCellViewModel(pokemon: pokemon)
     }
     
-    func getListOfPokemons(completion: @escaping (Result<Void, Error>) -> Void) {
-        NetworkService.getPokemons { [weak self] result in
+    func getListOfPokemons(page: Int, pageSize: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        NetworkService.getPokemons(page: page, pageSize: pageSize) { [weak self] result in
             switch result {
             case .success(let pokemons):
                 DispatchQueue.main.async {
-                    self?.mainResultResponse = pokemons
+                    if page == 1 {
+                        self?.mainResultResponse = pokemons
+                    } else {
+                        self?.mainResultResponse?.results.append(contentsOf: pokemons.results)
+                    }
                     completion(.success(()))
                 }
             case .failure(let error):
@@ -59,16 +61,19 @@ final class MainScreenTableViewModel: MainScreenTableViewProtocol {
         self.selectedIndexPath = indexPath
     }
     
-    func viewModelForSelectedRow() -> DetailPokemonViewProtocol? {
+    func viewModelForSelectedRow(networkService: NetworkService) -> DetailPokemonViewProtocol? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
         guard let pokemonURL = mainResultResponse?.results[selectedIndexPath.row].url else { return nil }
-        return DetailPokemonViewModel(pokemonUrl: pokemonURL)
+        return DetailPokemonViewModel(networkService: networkService, pokemonUrl: pokemonURL)
     }
     
     func loadDataFromDatabase() {
-        let results = StorageManager.getAllPokemons()
-        guard let mainResultResponseObject = results.first else { return }
-        mainResultResponse = mainResultResponseObject.toMainResultResponse()
-        dataSource = mainResultResponse?.results ?? []
+        let mainResultResponseObjects = StorageManager.getAllPokemons()
+        var mainResultResponses: [MainResultResponse] = []
+        mainResultResponseObjects.forEach { mainResultResponseObject in
+            let mainResultResponse = mainResultResponseObject.toMainResultResponse()
+            mainResultResponses.append(mainResultResponse)
+        }
+        dataSource = mainResultResponses.last?.results ?? []
     }
 }

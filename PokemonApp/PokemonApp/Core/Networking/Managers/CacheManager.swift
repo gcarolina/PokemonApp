@@ -5,16 +5,16 @@
 //  Created by Carolina on 23.04.23.
 //
 
-import Foundation
+import UIKit
 import AlamofireImage
 
 final class CacheManager {
-    private init() {}
-    
-    static let shared = CacheManager()
-    
-    let imageCache = AutoPurgingImageCache(
-        memoryCapacity: 100_000_000,
-        preferredMemoryUsageAfterPurge: 60_000_000
-    )
+    let imageCache: AutoPurgingImageCache
+
+    init(memoryCapacity: UInt64, preferredMemoryUsageAfterPurge: UInt64) {
+        imageCache = AutoPurgingImageCache(
+            memoryCapacity: memoryCapacity,
+            preferredMemoryUsageAfterPurge: preferredMemoryUsageAfterPurge
+        )
+    }
 }
